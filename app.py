@@ -5,6 +5,8 @@ from tkinter import filedialog, Text
 root = tk.Tk()
 
 def calculate(income, expenses, savings):
+
+	#format input values for calculations
 	yearly_income = income*12
 	yearly_expenses = expenses*12
 	true_income = yearly_income - yearly_expenses
@@ -14,7 +16,10 @@ def calculate(income, expenses, savings):
 	total = 0
 	dividend_income = 0
 
+	#assumed dividend income rate: 4% anually
+	#assumed interest rate: 7% anually
 
+	#calculate interest earned each year + yearly savings.
 	while dividend_income < yearly_expenses:
 		savings = savings + true_income
 		interest = savings*(rate/100)
@@ -28,9 +33,11 @@ def calculate(income, expenses, savings):
 	results['text'] = "You can retire in " + str(years) + " years. You will have $" + str(round(savings, 2)) + " in savings."
 
 
+#initialize and format GUI
 canvas = tk.Canvas(root, height=500, width=600, bg="gray")
 canvas.pack()
 
+#income input field
 income_frame = tk.Frame(root, bg="white", bd=5)
 income_frame.place(relwidth = 0.8, relheight=0.1, relx=0.1, rely=0.1)
 
@@ -40,6 +47,7 @@ income.place(relwidth=0.25, relheight=1)
 income_entry = tk.Entry(income_frame)
 income_entry.place(relx=1, relwidth=0.70, relheight=1, anchor="ne")
 
+#expenses input field
 expenses_frame = tk.Frame(root, bg="white", bd=5)
 expenses_frame.place(relwidth = 0.8, relheight=0.1, relx=0.1, rely=0.25)
 
@@ -49,6 +57,7 @@ expenses.place(relwidth=0.25, relheight=1)
 expenses_entry = tk.Entry(expenses_frame)
 expenses_entry.place(relx=1, relwidth=0.70, relheight=1, anchor="ne")
 
+#savings input field
 savings_frame = tk.Frame(root, bg="white", bd=5)
 savings_frame.place(relwidth = 0.8, relheight=0.1, relx=0.1, rely=0.4)
 
@@ -58,6 +67,7 @@ savings.place(relwidth=0.25, relheight=1)
 savings_entry = tk.Entry(savings_frame)
 savings_entry.place(relx=1, relwidth=0.70, relheight=1, anchor="ne")
 
+#button init and formatting
 calculate_frame = tk.Frame(root)
 calculate_frame.place(relwidth = 0.3, relheight=0.1, relx=0.5, rely=0.55, anchor="n")
 
@@ -65,6 +75,7 @@ calculate_button = tk.Button(calculate_frame, text="Calculate Retirement Date",
 	command= lambda: calculate(int(income_entry.get()), int(expenses_entry.get()), int(savings_entry.get())))
 calculate_button.place(relwidth=1, relheight=1)
 
+#user results field
 results_frame = tk.Frame(root, bd=5)
 results_frame.place(relwidth = 0.8, relheight=0.2, relx=0.1, rely=0.7)
 
