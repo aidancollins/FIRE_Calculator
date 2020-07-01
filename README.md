@@ -8,6 +8,5 @@ FIRE is a popular personal finance movement for people who want to achieve finan
 This calculator assumes you will be investing all income after expenses and calculates the date at which the dividend income surpasses your expenses.
 In theory, this means you can cover your expenses indefinitely without tuching the principal investment.
 
-## Build Status
-Base Functionality: complete
-TODO: styling, user messages and explanation, error handling
+## Usage
+To run, download app.py and within the project directory execute command "python3 app.py".
